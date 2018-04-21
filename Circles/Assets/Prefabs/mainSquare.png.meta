@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 11193f691e3dcb2479c3b48155c0ed87
-timeCreated: 1523795113
+guid: ef60dd99e0dfd8e45926f3287fa693d5
+timeCreated: 1524335106
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: mainCircle_0
-    21300002: mainCircle_1
-    21300004: mainCircle_2
-    21300006: mainCircle_3
+    21300000: mainSquare_0
+    21300002: mainSquare_1
+    21300004: mainSquare_2
+    21300006: mainSquare_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -95,13 +95,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mainCircle_0
+      name: mainSquare_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 253
-        width: 228
-        height: 228
+        y: 558
+        width: 482
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -109,13 +109,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mainCircle_1
+      name: mainSquare_1
       rect:
         serializedVersion: 2
-        x: 253
-        y: 253
-        width: 228
-        height: 228
+        x: 0
+        y: 62
+        width: 48
+        height: 482
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,27 +123,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mainCircle_2
+      name: mainSquare_2
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 62
+        width: 48
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mainSquare_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 229
-        height: 228
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: mainCircle_3
-      rect:
-        serializedVersion: 2
-        x: 252
-        y: 0
-        width: 229
-        height: 228
+        width: 482
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

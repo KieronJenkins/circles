@@ -13,6 +13,7 @@ TagManager:
   - Blue
   - Yellow
   - Purple
+  - Point
   layers:
   - Default
   - TransparentFX
