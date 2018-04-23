@@ -8,6 +8,8 @@ public class PlayerStats : MonoBehaviour {
 	[SerializeField]
 	private Text _scoreText;
 	private int _playerScore;
+	[SerializeField]
+	private AudioSource _popSound;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +28,7 @@ public class PlayerStats : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D col) {
 
 		if (col.tag == "Point") {
+			_popSound.Play ();
 			Destroy (col.gameObject);
 			_playerScore++;
 		}
