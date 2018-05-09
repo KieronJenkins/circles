@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour {
+
+	public PlayerBounce pb;
 
 	[SerializeField]
 	private Text _scoreText;
@@ -21,7 +24,7 @@ public class PlayerStats : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		_scoreText.text = "Score: " + _playerScore;
+		_scoreText.text = "" + _playerScore;
 
 	}
 
