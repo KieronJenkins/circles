@@ -18,6 +18,8 @@ TagManager:
   - MainSquare
   - BarrierTwo
   - BarrierDelete
+  - TutGo
+  - TutBack
   layers:
   - Default
   - TransparentFX

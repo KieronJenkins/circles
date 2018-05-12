@@ -24,8 +24,7 @@ public class PlayerBounce : MonoBehaviour {
 	private Color _yellow;
 	[SerializeField]
 	private GameObject _player;
-
-	private static int _playerhealth;
+	public static int _playerhealth;
 	[SerializeField]
 	private GameObject _playerHeartOne;
 	[SerializeField]

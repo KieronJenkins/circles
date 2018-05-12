@@ -4,23 +4,43 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour {
 
+	//------------------------------------------------------------------------------------------------------
+
 	[SerializeField]
 	private GameObject _pauseMenu;
 
+	//------------------------------------------------------------------------------------------------------
+
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 
 	_pauseMenu.SetActive (false);
 		
 	}
+
+	//------------------------------------------------------------------------------------------------------
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
 
-	public void Pause () {
-		Time.timeScale = 0f;
-		_pauseMenu.SetActive (true);
+	//------------------------------------------------------------------------------------------------------
+
+	public void Pause () 
+	{
+		
+		Time.timeScale = 0f; // Pauses the game
+		_pauseMenu.SetActive (true); // Makes the pause menu visible
+
+	}
+
+	//------------------------------------------------------------------------------------------------------
+
+	public void Unpause () 
+	{
+		Time.timeScale = 1f; // Unpauses the game
+		_pauseMenu.SetActive (false); // Makes the pause menu invisible
 	}
 }

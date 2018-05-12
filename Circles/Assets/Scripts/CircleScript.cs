@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class CircleScript : MonoBehaviour {
 
+	//------------------------------------------------------------------------------------------------------
+
 	[SerializeField]
 	private float _rotateSpeed = 75f; // Sets the circles rotation speed
+
+	//------------------------------------------------------------------------------------------------------
 
 	// Use this for initialization
 	void Start () {
 		
 	}
+
+	//------------------------------------------------------------------------------------------------------
 	
 	// Update is called once per frame
 	void Update () {
@@ -18,6 +24,8 @@ public class CircleScript : MonoBehaviour {
 		CircleRotation (); // Runs the circlerotation method
 
 	}
+
+	//------------------------------------------------------------------------------------------------------
 
 	void CircleRotation ()
 	{
