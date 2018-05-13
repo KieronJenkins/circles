@@ -2,35 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
+using UnityEngine.SceneManagement;
 
 public class GameAds : MonoBehaviour {
 
-	private PlayerBounce playerBounce;
+	public void QuitGameAd () 
+	{
 
-	void Start() {
-		playerBounce = GameObject.FindObjectOfType<PlayerBounce> ();
+		ShowOptions options = new ShowOptions ();
+		options.resultCallback = AdStatus;
+
+		if (Advertisement.IsReady("video")) {
+			Advertisement.Show ("video", options);
+		} 
+
 	}
 
-	public void RunAdvertisement () {
-
-		if (Advertisement.IsReady("rewardedVideo")) {
-			Advertisement.Show ("rewardedVideo");
-		}
-	}
-
-	private void HandleShowResult(ShowResult result) {
+	void AdStatus (ShowResult result) {
 
 		switch (result) {
 		case ShowResult.Finished:
-			PlayerBounce._playerhealth = PlayerBounce._playerhealth + 1;
-			//Add special heart visible in corner
-			Debug.Log ("Health added");
+			Time.timeScale = 1f;
+			SceneManager.LoadScene ("Circles_MainMenu"); 
+			break;
+
+		case ShowResult.Skipped:
+			Time.timeScale = 1f;
+			SceneManager.LoadScene ("Circles_MainMenu"); 
 			break;
 
 		case ShowResult.Failed:
-
+			Time.timeScale = 1f;
+			SceneManager.LoadScene ("Circles_MainMenu"); 
 			break;
 		}
-
 	}
 }
