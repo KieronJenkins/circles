@@ -13,68 +13,63 @@ public class PlayerBounce : MonoBehaviour {
 	[HideInInspector]
 	private string _mainColour; // The colour of the player
 	[SerializeField]
-	private SpriteRenderer _sr;
+	private SpriteRenderer _sr; // The sprite renderer to change the players colour
 	[SerializeField]
-	private Color _blue;
+	private Color _blue; // Blue colour
 	[SerializeField]
-	private Color _red;
+	private Color _red; // Red colour
 	[SerializeField]
-	private Color _purple;
+	private Color _purple; // Purple colour
 	[SerializeField]
-	private Color _yellow;
+	private Color _yellow; // Yellow colour
 	[SerializeField]
-	private GameObject _player;
-	public static int _playerhealth;
+	private GameObject _player; // The player
+	public static int _playerhealth; // The players health
 	[SerializeField]
-	private GameObject _playerHeartOne;
+	private GameObject _playerHeartOne; // Health hear at bottom of screen
 	[SerializeField]
-	private GameObject _playerHeartTwo;
+	private GameObject _playerHeartTwo; // Health hear at bottom of screen
 	[SerializeField]
-	private GameObject _playerHeartThree;
+	private GameObject _playerHeartThree; // Health hear at bottom of screen
+	public AudioSource _hitSounds;
 
 	//-----------------------------------------------------------------------------------------------------
 
-	// Use this for initialization
-	void Start () {
-
+	void Start () 
+	{
 		MainPlayerColour (); // Randomises players colour on start
 		_playerhealth = 3; // The players health is set to 3 on start
 		_playerHeartOne.SetActive (true); // On start the first heart is visible
 		_playerHeartTwo.SetActive (true); // On start the second heart is visible
 		_playerHeartThree.SetActive (true); // On start the third heart is visible
-
-
 	}
 
 	//-----------------------------------------------------------------------------------------------------
 
-	// Update is called once per frame
-	void Update () {
-		
+	void Update () 
+	{
 		PlayerMovement (); // Run the PlayerMovement method
-
 	}
 
 	//-----------------------------------------------------------------------------------------------------
 
-	void PlayerMovement () {
-
-		if (Input.GetButtonDown ("Jump") || Input.GetMouseButtonDown (0)) { // When the player presses space or left mouse click
-
+	void PlayerMovement () 
+	{
+		if (Input.GetButtonDown ("Jump") || Input.GetMouseButtonDown (0)) // When the player presses space or left mouse click
+		{ 
 			_rb.velocity = Vector2.up * _playerBounce; // The player bounces upwards
-
 		}
-
 	}
 
 	//-----------------------------------------------------------------------------------------------------
 
-	void OnTriggerEnter2D (Collider2D col) {
-		if (col.tag != _mainColour && col.tag != "Point" && col.tag != "Barrier" && col.tag != "BarrierTwo") { // If the player collides with an object and the tag doesnt match the _mainColour text
-			
-		
-			if (_playerhealth > 0) { // If the players health is greater than 0
-
+	void OnTriggerEnter2D (Collider2D col) 
+	{
+		if (col.tag != _mainColour && col.tag != "Point" && col.tag != "Barrier" && col.tag != "BarrierTwo")  // If the player collides with an object which isnt the same colour, isnt a point and isnt any of the barriers
+		{		
+			if (_playerhealth > 0) // If the players health is greater than 0
+			{ 
+				_hitSounds.Play (); // Plays the hits sound
 				_playerhealth = _playerhealth - 1; // Minus 1 from the players health
 				_playerHeartOne.SetActive (false); // Make the first heart gameobject invisible / not active
 
@@ -82,14 +77,17 @@ public class PlayerBounce : MonoBehaviour {
 				{
 					_playerHeartTwo.SetActive (false); // Make the second heart gameobject invisible / not active
 				}
+			} 
 
-			} else if (_playerhealth <= 0) { // If the players health is less than or equal to 0
+			else if (_playerhealth <= 0) // If the players health is less than or equal to 0
+			{
 				_playerHeartThree.SetActive (false); // Make the third heart gameobject invisible / not active
 				SceneManager.LoadScene ("Circles_MainGame"); // Reset the level
 			}
 		}
 
-		if (col.tag == "Point") { // If the player collides with an object with the tag of Point
+		if (col.tag == "Point") // If the player collides with an object with the tag of Point
+		{ 
 			MainPlayerColour (); // Run MainPlayerColour method
 		}
 	}
@@ -99,42 +97,51 @@ public class PlayerBounce : MonoBehaviour {
 	void MainPlayerColour () {
 
 		int colourSwitch = Random.Range (0, 4); // Select a random number between 0 and 3
-		switch (colourSwitch) {
+		switch (colourSwitch) 
+		{
 		case 0: 
 			
-			if (_mainColour == "Red") { // If the main colour is already red
+			if (_mainColour == "Red") // If the main colour is already red
+			{ 
 				MainPlayerColour (); // Recheck for another colour
 				break;
-			} else
+			} 
+			else
 			_mainColour = "Red"; // If the random number chosen is 0, set the mainColour text to red
 			_sr.color = _red; // Sets the players colour to red
 			break; // exits the current loop
 
 		case 1: 
 			
-			if (_mainColour == "Yellow") { // If the players colour is already Yellow
+			if (_mainColour == "Yellow") // If the players colour is already Yellow
+			{ 
 				MainPlayerColour (); // Rerun the method to get new colour
 				break;
-			} else
+			} 
+			else
 			_mainColour = "Yellow";
 			_sr.color = _yellow;
 			break;
 
 		case 2: 
 			
-			if (_mainColour == "Blue") {
+			if (_mainColour == "Blue") 
+			{
 				MainPlayerColour ();
 				break;
-			} else
+			} 
+			else
 			_mainColour = "Blue";
 			_sr.color = _blue;
 			break;
 		case 3: 
 			
-			if (_mainColour == "Purple") {
+			if (_mainColour == "Purple") 
+			{
 				MainPlayerColour ();
 				break;
-			} else
+			} 
+			else
 			_mainColour = "Purple";
 			_sr.color = _purple;
 			break;

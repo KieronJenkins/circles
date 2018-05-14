@@ -8,17 +8,17 @@ public class PlayerStats : MonoBehaviour {
 
 	//------------------------------------------------------------------------------------------------------
 
-	public PlayerBounce pb;
 	[SerializeField]
-	private Text _scoreText;
-	private int _playerScore;
-	[SerializeField]
-	private AudioSource _popSound;
+	private Text _scoreText; // The text to display the score
+	public int _playerScore; // The players score
+	[SerializeField] // Show in inspector even though its private
+	private AudioSource _popSound; // The sound played when the user picks up a point
 
 	//------------------------------------------------------------------------------------------------------
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		
 		_playerScore = 0; // Sets the players score to 0 on start
 
@@ -27,7 +27,8 @@ public class PlayerStats : MonoBehaviour {
 	//------------------------------------------------------------------------------------------------------
 
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 
 		_scoreText.text = "" + _playerScore; // Checks the players score
 
@@ -35,7 +36,8 @@ public class PlayerStats : MonoBehaviour {
 
 	//------------------------------------------------------------------------------------------------------
 
-	void OnTriggerEnter2D (Collider2D col) {
+	void OnTriggerEnter2D (Collider2D col) 
+	{
 
 		if (col.tag == "Point") { // If the player collides with object with the tag of Point
 			_popSound.Play (); // Play sound

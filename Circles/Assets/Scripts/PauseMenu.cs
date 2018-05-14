@@ -7,7 +7,7 @@ public class PauseMenu : MonoBehaviour {
 	//------------------------------------------------------------------------------------------------------
 
 	[SerializeField]
-	private GameObject _pauseMenu;
+	private GameObject _pauseMenu; // The pause menu game object
 
 	//------------------------------------------------------------------------------------------------------
 
@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour {
 	void Start () 
 	{
 
-	_pauseMenu.SetActive (false);
+	_pauseMenu.SetActive (false); // On start sets the pause menu to invisible
 		
 	}
 
